@@ -69,9 +69,9 @@ class LoginView(SuccessURLAllowedHostsMixin, FormView):
 
     def get_redirect_url(self):
         """Return the user-originating redirect URL if it's safe."""
+        redirect_to = "/"
         try:
             userType = User.objects.get(username=self.request.POST.get("username")).userType
-            print(userType)
             if userType=="boss":
                 redirect_to="/pageadmin/"
             elif userType=="salesman":
@@ -125,16 +125,17 @@ def do_register(request):
             reg_form = RegForm(request.POST)
 
             if reg_form.is_valid():
-                userType = reg_form.userType
+                userType = request.POST.get('userType')
+                username = request.POST.get('username')
                 if userType == "boss":
                     redirect_to = "/pageadmin/"
                 elif userType == "salesman":
                     redirect_to = "/addOrder/"
                 reg_form.save()
-                if redirect_to:
-                    return redirect(redirect_to)
-                else:
-                    return redirect('/')
+                user = User.objects.get(username=username)
+                auth_login(request, user)
+                return redirect(redirect_to)
+                
             else:
                 return render(request, 'failure.html', {'reason': reg_form.errors})
         else:

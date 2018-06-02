@@ -1,0 +1,1089 @@
+Unhandled exception in thread started by <function check_errors.<locals>.wrapper at 0x7f2dee8ab620>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/autoreload.py", line 225, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/management/commands/runserver.py", line 121, in inner_run
+    self.check(display_num_errors=True)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/management/base.py", line 364, in check
+    include_deployment_checks=include_deployment_checks,
+  File "/usr/local/lib/python3.5/dist-packages/django/core/management/base.py", line 351, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/checks/registry.py", line 73, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/checks/urls.py", line 13, in check_url_config
+    return check_resolver(resolver)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/checks/urls.py", line 23, in check_resolver
+    return check_method()
+  File "/usr/local/lib/python3.5/dist-packages/django/urls/resolvers.py", line 397, in check
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.5/dist-packages/django/urls/resolvers.py", line 536, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.5/dist-packages/django/urls/resolvers.py", line 529, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.5/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 986, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 969, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 958, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 673, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 665, in exec_module
+  File "<frozen importlib._bootstrap>", line 222, in _call_with_frames_removed
+  File "/home/zhou/hit-software_Test/Commission/Commission/urls.py", line 21, in <module>
+    path('',include('sellsGun.urls')),
+  File "/usr/local/lib/python3.5/dist-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.5/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 986, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 969, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 958, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 673, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 665, in exec_module
+  File "<frozen importlib._bootstrap>", line 222, in _call_with_frames_removed
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/urls.py", line 3, in <module>
+    from .views import *
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 129
+    username = request.POST.get('username')
+                                          ^
+TabError: inconsistent use of tabs and spaces in indentation
+Performing system checks...
+
+[02/Jun/2018 16:57:28] "GET / HTTP/1.1" 200 1935
+[02/Jun/2018 16:57:29] "GET / HTTP/1.1" 200 1935
+[02/Jun/2018 17:23:45] "GET / HTTP/1.1" 200 1935
+[02/Jun/2018 17:23:50] "GET /register/ HTTP/1.1" 200 3423
+[02/Jun/2018 17:23:50] "GET /static/css/reglogin.css HTTP/1.1" 200 11478
+[02/Jun/2018 17:23:59] "GET / HTTP/1.1" 200 1935
+[02/Jun/2018 17:24:01] "GET /register/ HTTP/1.1" 200 3423
+[02/Jun/2018 17:25:17] "GET / HTTP/1.1" 200 1935
+[02/Jun/2018 17:25:20] "GET /register/ HTTP/1.1" 200 3423
+[02/Jun/2018 17:25:49] "GET /users/login/?next=/ HTTP/1.1" 200 1917
+[02/Jun/2018 17:25:57] "POST /login/ HTTP/1.1" 302 0
+[02/Jun/2018 17:25:58] "GET /addOrder/ HTTP/1.1" 200 9567
+[02/Jun/2018 17:25:58] "GET /static/css/custom.css HTTP/1.1" 200 4649
+[02/Jun/2018 17:25:58] "GET /static/css/font-awesome.css HTTP/1.1" 200 23140
+[02/Jun/2018 17:25:58] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 200 293285
+[02/Jun/2018 17:25:58] "GET /static/css/bootstrap.css HTTP/1.1" 200 126536
+[02/Jun/2018 17:25:59] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29080
+[02/Jun/2018 17:25:59] "GET /static/js/custom.js HTTP/1.1" 200 1346
+[02/Jun/2018 17:25:59] "GET /static/js/loadpage.js HTTP/1.1" 200 4723
+[02/Jun/2018 17:25:59] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 200 1386
+[02/Jun/2018 17:26:00] "GET /static/font-awesome/fonts/fontawesome-webfontba72.woff?v=4.0.3 HTTP/1.1" 200 44432
+[02/Jun/2018 17:26:08] "GET /addOrder/ HTTP/1.1" 200 9567
+Internal Server Error: /statistical/user/commission/yushuang
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 317, in getUserLineComm
+    return getUserLine(username, "commission")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 329, in getUserLine
+    dataDict = getUserCommissionLine(now_time,user,flag)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 168, in getUserCommissionLine
+    plt.plot(list(monthlist),count)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (5,) and (0,)
+[02/Jun/2018 17:26:14] "GET /statistical/user/commission/yushuang HTTP/1.1" 500 15759
+Internal Server Error: /statistical/user/sell/yushuang
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 314, in getUserLineSale
+    return getUserLine(username,"sellCount")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 329, in getUserLine
+    dataDict = getUserCommissionLine(now_time,user,flag)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 168, in getUserCommissionLine
+    plt.plot(list(monthlist),count)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (5,) and (0,)
+[02/Jun/2018 17:26:15] "GET /statistical/user/sell/yushuang HTTP/1.1" 500 15733
+[02/Jun/2018 17:26:17] "GET /addOrder/ HTTP/1.1" 200 9567
+[02/Jun/2018 17:26:20] "GET /register HTTP/1.1" 301 0
+[02/Jun/2018 17:26:22] "GET /register HTTP/1.1" 301 0
+[02/Jun/2018 17:26:22] "GET /register/ HTTP/1.1" 200 3423
+[02/Jun/2018 17:26:23] "GET /static/css/reglogin.css HTTP/1.1" 200 11478
+[02/Jun/2018 17:26:26] "POST /addOrder/ HTTP/1.1" 200 953
+[02/Jun/2018 17:26:30] "GET / HTTP/1.1" 200 1935
+[02/Jun/2018 17:26:39] "POST /login/ HTTP/1.1" 302 0
+[02/Jun/2018 17:26:39] "GET /addOrder/ HTTP/1.1" 200 9567
+[02/Jun/2018 17:26:49] "GET /users/login/?next= HTTP/1.1" 200 1916
+[02/Jun/2018 17:26:58] "GET /addOrder HTTP/1.1" 301 0
+[02/Jun/2018 17:26:59] "GET /addOrder HTTP/1.1" 301 0
+[02/Jun/2018 17:26:59] "GET /addOrder/ HTTP/1.1" 302 0
+[02/Jun/2018 17:26:59] "GET /users/login?next=/addOrder/ HTTP/1.1" 301 0
+[02/Jun/2018 17:26:59] "GET /users/login/?next=/addOrder/ HTTP/1.1" 200 1926
+[02/Jun/2018 17:27:02] "POST /addOrder/ HTTP/1.1" 200 9769
+[02/Jun/2018 17:27:22] "POST /addOrder/ HTTP/1.1" 200 9954
+[02/Jun/2018 17:27:36] "POST /addOrder/ HTTP/1.1" 200 10141
+[02/Jun/2018 17:27:51] "POST /addOrder/ HTTP/1.1" 200 10318
+[02/Jun/2018 17:27:58] "GET /addClearOrder/ HTTP/1.1" 200 229
+[02/Jun/2018 17:28:04] "GET / HTTP/1.1" 200 1935
+[02/Jun/2018 17:28:11] "POST /login/ HTTP/1.1" 302 0
+[02/Jun/2018 17:28:11] "GET /addOrder/ HTTP/1.1" 200 10441
+[02/Jun/2018 17:28:15] "GET /addClearOrder/ HTTP/1.1" 200 219
+[02/Jun/2018 17:28:18] "GET / HTTP/1.1" 200 1935
+[02/Jun/2018 17:28:31] "POST /login/ HTTP/1.1" 302 0
+[02/Jun/2018 17:28:31] "GET /addOrder/ HTTP/1.1" 200 10441
+No handles with labels found to put in legend.
+[02/Jun/2018 17:28:37] "GET /statistical/user/commission/yushuang HTTP/1.1" 200 27207
+No handles with labels found to put in legend.
+[02/Jun/2018 17:28:44] "GET /statistical/user/sell/yushuang HTTP/1.1" 200 28069
+[02/Jun/2018 17:28:58] "GET /addClearOrder HTTP/1.1" 301 0
+[02/Jun/2018 17:29:00] "GET /addClearOrder HTTP/1.1" 301 0
+[02/Jun/2018 17:29:00] "GET /addClearOrder/ HTTP/1.1" 302 0
+[02/Jun/2018 17:29:00] "GET /users/login?next=/addClearOrder/ HTTP/1.1" 301 0
+[02/Jun/2018 17:29:00] "GET /users/login/?next=/addClearOrder/ HTTP/1.1" 200 1931
+[02/Jun/2018 17:29:54] "GET /register HTTP/1.1" 301 0
+[02/Jun/2018 17:33:55] "GET /addOrder HTTP/1.1" 301 0
+[02/Jun/2018 17:36:55] "GET / HTTP/1.1" 200 1935
+[02/Jun/2018 17:37:55] "GET / HTTP/1.1" 200 1935
+[02/Jun/2018 17:46:13] "GET / HTTP/1.0" 200 1935
+[02/Jun/2018 18:20:59] "GET / HTTP/1.1" 200 1935
+Not Found: /favicon.ico
+[02/Jun/2018 18:21:08] "GET /favicon.ico HTTP/1.1" 404 5570
+[02/Jun/2018 18:21:40] "POST /login/ HTTP/1.1" 200 2081
+[02/Jun/2018 18:21:59] "POST /login/ HTTP/1.1" 302 0
+[02/Jun/2018 18:21:59] "GET /addOrder/ HTTP/1.1" 200 9568
+[02/Jun/2018 18:21:59] "GET /static/css/font-awesome.css HTTP/1.1" 200 23140
+[02/Jun/2018 18:21:59] "GET /static/css/custom.css HTTP/1.1" 200 4649
+[02/Jun/2018 18:21:59] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 200 1386
+[02/Jun/2018 18:21:59] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29080
+[02/Jun/2018 18:21:59] "GET /static/js/custom.js HTTP/1.1" 200 1346
+[02/Jun/2018 18:21:59] "GET /static/js/loadpage.js HTTP/1.1" 200 4723
+[02/Jun/2018 18:22:00] "GET /static/css/bootstrap.css HTTP/1.1" 200 126536
+[02/Jun/2018 18:22:01] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 200 293285
+[02/Jun/2018 18:22:02] "GET /static/font-awesome/fonts/fontawesome-webfontba72.woff?v=4.0.3 HTTP/1.1" 200 44432
+[02/Jun/2018 18:25:20] "POST /addOrder/ HTTP/1.1" 200 9750
+[02/Jun/2018 18:25:34] "POST /addOrder/ HTTP/1.1" 200 953
+[02/Jun/2018 18:25:45] "POST /addOrder/ HTTP/1.1" 200 9947
+[02/Jun/2018 18:28:13] "POST /addOrder/ HTTP/1.1" 200 953
+[02/Jun/2018 18:28:23] "POST /addOrder/ HTTP/1.1" 200 10129
+[02/Jun/2018 18:28:26] "GET /addClearOrder/ HTTP/1.1" 200 229
+Internal Server Error: /statistical/user/commission/zhanghuan
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 317, in getUserLineComm
+    return getUserLine(username, "commission")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 329, in getUserLine
+    dataDict = getUserCommissionLine(now_time,user,flag)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 168, in getUserCommissionLine
+    plt.plot(list(monthlist),count)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (6,) and (12,)
+[02/Jun/2018 18:28:31] "GET /statistical/user/commission/zhanghuan HTTP/1.1" 500 15621
+Internal Server Error: /statistical/user/sell/zhanghuan
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 314, in getUserLineSale
+    return getUserLine(username,"sellCount")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 329, in getUserLine
+    dataDict = getUserCommissionLine(now_time,user,flag)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 168, in getUserCommissionLine
+    plt.plot(list(monthlist),count)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (6,) and (12,)
+[02/Jun/2018 18:28:37] "GET /statistical/user/sell/zhanghuan HTTP/1.1" 500 15595
+Internal Server Error: /statistical/user/sell/zhanghuan
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 314, in getUserLineSale
+    return getUserLine(username,"sellCount")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 329, in getUserLine
+    dataDict = getUserCommissionLine(now_time,user,flag)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 168, in getUserCommissionLine
+    plt.plot(list(monthlist),count)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (6,) and (12,)
+[02/Jun/2018 18:28:37] "GET /statistical/user/sell/zhanghuan HTTP/1.1" 500 15595
+Internal Server Error: /statistical/user/sell/zhanghuan
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 314, in getUserLineSale
+    return getUserLine(username,"sellCount")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 329, in getUserLine
+    dataDict = getUserCommissionLine(now_time,user,flag)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 168, in getUserCommissionLine
+    plt.plot(list(monthlist),count)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (6,) and (12,)
+[02/Jun/2018 18:28:40] "GET /statistical/user/sell/zhanghuan HTTP/1.1" 500 15595
+[02/Jun/2018 18:28:40] "GET /addOrder/ HTTP/1.1" 200 10252
+Internal Server Error: /statistical/user/sell/zhanghuan
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 314, in getUserLineSale
+    return getUserLine(username,"sellCount")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 329, in getUserLine
+    dataDict = getUserCommissionLine(now_time,user,flag)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 168, in getUserCommissionLine
+    plt.plot(list(monthlist),count)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (6,) and (12,)
+[02/Jun/2018 18:28:47] "GET /statistical/user/sell/zhanghuan HTTP/1.1" 500 15595
+Internal Server Error: /statistical/user/commission/zhanghuan
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 317, in getUserLineComm
+    return getUserLine(username, "commission")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 329, in getUserLine
+    dataDict = getUserCommissionLine(now_time,user,flag)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 168, in getUserCommissionLine
+    plt.plot(list(monthlist),count)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (6,) and (12,)
+[02/Jun/2018 18:28:49] "GET /statistical/user/commission/zhanghuan HTTP/1.1" 500 15621
+Internal Server Error: /statistical/user/commission/zhanghuan
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 317, in getUserLineComm
+    return getUserLine(username, "commission")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 329, in getUserLine
+    dataDict = getUserCommissionLine(now_time,user,flag)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 168, in getUserCommissionLine
+    plt.plot(list(monthlist),count)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (6,) and (12,)
+[02/Jun/2018 18:28:50] "GET /statistical/user/commission/zhanghuan HTTP/1.1" 500 15621
+[02/Jun/2018 18:29:25] "GET /addOrder/ HTTP/1.1" 200 10252
+[02/Jun/2018 18:29:38] "GET /addClearOrder/ HTTP/1.1" 200 219
+[02/Jun/2018 18:29:53] "GET /addClearOrder/ HTTP/1.1" 200 219
+Internal Server Error: /statistical/user/sell/zhanghuan
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 314, in getUserLineSale
+    return getUserLine(username,"sellCount")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 329, in getUserLine
+    dataDict = getUserCommissionLine(now_time,user,flag)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 168, in getUserCommissionLine
+    plt.plot(list(monthlist),count)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (6,) and (12,)
+[02/Jun/2018 18:30:00] "GET /statistical/user/sell/zhanghuan HTTP/1.1" 500 15595
+Internal Server Error: /statistical/user/commission/zhanghuan
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 317, in getUserLineComm
+    return getUserLine(username, "commission")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 329, in getUserLine
+    dataDict = getUserCommissionLine(now_time,user,flag)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 168, in getUserCommissionLine
+    plt.plot(list(monthlist),count)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (6,) and (12,)
+[02/Jun/2018 18:30:01] "GET /statistical/user/commission/zhanghuan HTTP/1.1" 500 15621
+[02/Jun/2018 18:30:01] "GET /addOrder/ HTTP/1.1" 200 10252
+[02/Jun/2018 18:30:11] "GET /users/logout/?next=/ HTTP/1.1" 302 0
+[02/Jun/2018 18:30:11] "GET / HTTP/1.1" 200 1935
+[02/Jun/2018 18:30:22] "POST /login/ HTTP/1.1" 200 2086
+Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/views/decorators/debug.py", line 76, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 64, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/views/generic/edit.py", line 144, in post
+    return self.form_invalid(form)
+  File "/usr/local/lib/python3.5/dist-packages/django/views/generic/edit.py", line 61, in form_invalid
+    return self.render_to_response(self.get_context_data(form=form))
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 105, in get_context_data
+    self.redirect_field_name: self.get_redirect_url(),
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 82, in get_redirect_url
+    url=redirect_to,
+UnboundLocalError: local variable 'redirect_to' referenced before assignment
+[02/Jun/2018 18:30:29] "POST /login/ HTTP/1.1" 500 132124
+Not Found: /favicon.ico
+[02/Jun/2018 18:31:27] "GET /favicon.ico HTTP/1.1" 404 5570
+[02/Jun/2018 18:31:27] "GET / HTTP/1.1" 200 1935
+Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/views/decorators/debug.py", line 76, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 64, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/views/generic/edit.py", line 144, in post
+    return self.form_invalid(form)
+  File "/usr/local/lib/python3.5/dist-packages/django/views/generic/edit.py", line 61, in form_invalid
+    return self.render_to_response(self.get_context_data(form=form))
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 105, in get_context_data
+    self.redirect_field_name: self.get_redirect_url(),
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 82, in get_redirect_url
+    url=redirect_to,
+UnboundLocalError: local variable 'redirect_to' referenced before assignment
+[02/Jun/2018 18:31:55] "POST /login/ HTTP/1.1" 500 132120
+[02/Jun/2018 18:31:58] "GET / HTTP/1.1" 200 1935
+[02/Jun/2018 18:32:10] "POST /login/ HTTP/1.1" 302 0
+[02/Jun/2018 18:32:10] "GET /addOrder/ HTTP/1.1" 200 10252
+[02/Jun/2018 18:32:10] "GET /static/css/font-awesome.css HTTP/1.1" 200 23140
+[02/Jun/2018 18:32:10] "GET /static/css/custom.css HTTP/1.1" 200 4649
+[02/Jun/2018 18:32:10] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 200 1386
+[02/Jun/2018 18:32:10] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29080
+[02/Jun/2018 18:32:10] "GET /static/js/custom.js HTTP/1.1" 200 1346
+[02/Jun/2018 18:32:10] "GET /static/js/loadpage.js HTTP/1.1" 200 4723
+[02/Jun/2018 18:32:10] "GET /static/css/bootstrap.css HTTP/1.1" 200 126536
+[02/Jun/2018 18:32:12] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 200 293285
+[02/Jun/2018 18:32:13] "GET /static/font-awesome/fonts/fontawesome-webfontba72.woff?v=4.0.3 HTTP/1.1" 200 44432
+[02/Jun/2018 18:32:19] "GET / HTTP/1.1" 200 1935
+[02/Jun/2018 18:32:23] "GET / HTTP/1.1" 200 1935
+Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/views/decorators/debug.py", line 76, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/utils/decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 64, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/django/views/generic/edit.py", line 144, in post
+    return self.form_invalid(form)
+  File "/usr/local/lib/python3.5/dist-packages/django/views/generic/edit.py", line 61, in form_invalid
+    return self.render_to_response(self.get_context_data(form=form))
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 105, in get_context_data
+    self.redirect_field_name: self.get_redirect_url(),
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 82, in get_redirect_url
+    url=redirect_to,
+UnboundLocalError: local variable 'redirect_to' referenced before assignment
+[02/Jun/2018 18:32:33] "POST /login/ HTTP/1.1" 500 132330
+[02/Jun/2018 18:32:54] "GET /login HTTP/1.1" 301 0
+[02/Jun/2018 18:33:15] "GET / HTTP/1.1" 200 1935
+[02/Jun/2018 18:33:18] "GET /register/ HTTP/1.1" 200 3423
+[02/Jun/2018 18:33:18] "GET /static/css/reglogin.css HTTP/1.1" 304 0
+[02/Jun/2018 18:36:09] "GET /login HTTP/1.1" 301 0
+[02/Jun/2018 18:42:06] "GET / HTTP/1.1" 200 1935
+[02/Jun/2018 18:54:07] "GET / HTTP/1.1" 200 1935
+Not Found: /favicon.ico
+[02/Jun/2018 18:54:08] "GET /favicon.ico HTTP/1.1" 404 5570
+[02/Jun/2018 18:54:14] "POST /login/ HTTP/1.1" 302 0
+[02/Jun/2018 18:54:14] "GET /addOrder/ HTTP/1.1" 200 10252
+[02/Jun/2018 18:54:15] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[02/Jun/2018 18:54:15] "GET /static/css/font-awesome.css HTTP/1.1" 304 0
+[02/Jun/2018 18:54:15] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 304 0
+[02/Jun/2018 18:54:15] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[02/Jun/2018 18:54:15] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 304 0
+[02/Jun/2018 18:54:15] "GET /static/css/custom.css HTTP/1.1" 304 0
+[02/Jun/2018 18:54:15] "GET /static/font-awesome/fonts/fontawesome-webfontba72.woff?v=4.0.3 HTTP/1.1" 304 0
+[02/Jun/2018 18:54:15] "GET /static/js/custom.js HTTP/1.1" 304 0
+[02/Jun/2018 18:54:15] "GET /static/js/loadpage.js HTTP/1.1" 304 0
+Forbidden (CSRF token missing or incorrect.): /login/
+[02/Jun/2018 18:54:18] "POST /login/ HTTP/1.1" 403 2508
+[02/Jun/2018 18:54:20] "GET / HTTP/1.1" 200 1935
+[02/Jun/2018 18:54:28] "POST /login/ HTTP/1.1" 200 2075
+[02/Jun/2018 18:54:47] "GET / HTTP/1.1" 200 1935
+[02/Jun/2018 18:54:47] "GET / HTTP/1.1" 200 1935
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 02, 2018 - 16:57:07
+Django version 2.0.2, using settings 'Commission.settings'
+Starting development server at http://0.0.0.0:8001/
+Quit the server with CONTROL-C.
+salesman
+invalid literal for int() with base 10: ''
+salesman
+salesman
+salesman
+salesman
+invalid literal for int() with base 10: ''
+invalid literal for int() with base 10: ''
+
+
+salesman
+
+salesman
+salesman
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 02, 2018 - 18:59:21
+Django version 2.0.2, using settings 'Commission.settings'
+Starting development server at http://0.0.0.0:8001/
+Quit the server with CONTROL-C.
+[02/Jun/2018 19:01:28] "GET / HTTP/1.1" 200 1935
+[02/Jun/2018 19:03:51] "POST /login/ HTTP/1.1" 200 2067
+[02/Jun/2018 19:04:12] "POST /login/ HTTP/1.1" 200 2067
+[02/Jun/2018 19:19:25] "POST /login/ HTTP/1.1" 302 0
+[02/Jun/2018 19:19:25] "GET /pageadmin/ HTTP/1.1" 200 7207
+[02/Jun/2018 19:19:25] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[02/Jun/2018 19:19:25] "GET /static/css/font-awesome.css HTTP/1.1" 304 0
+[02/Jun/2018 19:19:25] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[02/Jun/2018 19:19:25] "GET /static/css/custom.css HTTP/1.1" 304 0
+[02/Jun/2018 19:19:25] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 304 0
+[02/Jun/2018 19:19:25] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 304 0
+[02/Jun/2018 19:19:25] "GET /static/js/loadpage.js HTTP/1.1" 304 0
+[02/Jun/2018 19:19:25] "GET /static/font-awesome/fonts/fontawesome-webfontba72.woff?v=4.0.3 HTTP/1.1" 304 0
+[02/Jun/2018 19:19:25] "GET /static/js/custom.js HTTP/1.1" 304 0
+[02/Jun/2018 19:19:25] "GET /static/img/find_user.png HTTP/1.1" 200 10387
+[02/Jun/2018 19:19:28] "GET /statistical/user HTTP/1.1" 200 16041
+/usr/local/lib/python3.5/dist-packages/django/db/models/fields/__init__.py:1423: RuntimeWarning: DateTimeField User.date_joined received a naive datetime (2019-01-01 00:00:00) while time zone support is active.
+  RuntimeWarning)
+[02/Jun/2018 19:19:38] "GET /statistical/table/passuser/2018/12 HTTP/1.1" 200 1579
+/usr/local/lib/python3.5/dist-packages/django/db/models/fields/__init__.py:1423: RuntimeWarning: DateTimeField User.date_joined received a naive datetime (2018-07-01 00:00:00) while time zone support is active.
+  RuntimeWarning)
+[02/Jun/2018 19:19:46] "GET /statistical/table/passuser/2018/6 HTTP/1.1" 200 1572
+[02/Jun/2018 19:19:54] "GET /statistical/product/month/2018/0 HTTP/1.1" 200 19803
+[02/Jun/2018 19:20:01] "GET /statistical/product/month/2018/6 HTTP/1.1" 200 20571
+[02/Jun/2018 19:20:03] "GET /statistical/product/month/2018/9 HTTP/1.1" 200 19667
+[02/Jun/2018 19:20:08] "GET /statistical/product/month/2018/6 HTTP/1.1" 200 20571
+[02/Jun/2018 19:20:12] "GET /statistical/product/month/2018/5 HTTP/1.1" 200 20267
+[02/Jun/2018 19:20:15] "GET /statistical/product/month/2018/7 HTTP/1.1" 200 19533
+[02/Jun/2018 19:20:21] "GET /statistical/product/town/month/2016/0 HTTP/1.1" 200 24825
+[02/Jun/2018 19:20:25] "GET /statistical/product/town/month/2017/0 HTTP/1.1" 200 24619
+[02/Jun/2018 19:20:25] "GET /pageadmin HTTP/1.1" 301 0
+[02/Jun/2018 19:20:26] "GET /pageadmin HTTP/1.1" 301 0
+[02/Jun/2018 19:20:26] "GET /pageadmin/ HTTP/1.1" 302 0
+[02/Jun/2018 19:20:26] "GET /?next=/pageadmin/ HTTP/1.1" 200 1935
+[02/Jun/2018 19:20:28] "GET /statistical/product/town/month/2018/0 HTTP/1.1" 200 26371
+[02/Jun/2018 19:20:34] "GET /statistical/product/town/month/2017/0 HTTP/1.1" 200 24619
+Internal Server Error: /statistical/user/commission/line/2018/0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 287, in commissionLine
+    dataDict = getUserlineChar(now_time,"commission")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 206, in getUserlineChar
+    plt.plot(list(monthlist),linesDict[x],label=x)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (6,) and (12,)
+[02/Jun/2018 19:21:19] "GET /statistical/user/commission/line/2018/0 HTTP/1.1" 500 15527
+Internal Server Error: /statistical/user/commission/line/2018/0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 287, in commissionLine
+    dataDict = getUserlineChar(now_time,"commission")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 206, in getUserlineChar
+    plt.plot(list(monthlist),linesDict[x],label=x)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (6,) and (12,)
+[02/Jun/2018 19:21:20] "GET /statistical/user/commission/line/2018/0 HTTP/1.1" 500 15527
+No handles with labels found to put in legend.
+[02/Jun/2018 19:21:26] "GET /statistical/user/commission/histogram/2018/0 HTTP/1.1" 200 22451
+[02/Jun/2018 19:22:44] "POST /login/ HTTP/1.1" 200 2089
+[02/Jun/2018 19:22:53] "POST /login/ HTTP/1.1" 200 2089
+[02/Jun/2018 19:23:03] "POST /login/ HTTP/1.1" 302 0
+[02/Jun/2018 19:23:03] "GET /pageadmin/ HTTP/1.1" 200 7207
+[02/Jun/2018 19:23:03] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[02/Jun/2018 19:23:03] "GET /static/css/font-awesome.css HTTP/1.1" 304 0
+[02/Jun/2018 19:23:03] "GET /static/css/custom.css HTTP/1.1" 304 0
+[02/Jun/2018 19:23:03] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 304 0
+[02/Jun/2018 19:23:03] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[02/Jun/2018 19:23:03] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 304 0
+[02/Jun/2018 19:23:03] "GET /static/js/custom.js HTTP/1.1" 304 0
+[02/Jun/2018 19:23:03] "GET /static/font-awesome/fonts/fontawesome-webfontba72.woff?v=4.0.3 HTTP/1.1" 304 0
+[02/Jun/2018 19:23:03] "GET /static/js/loadpage.js HTTP/1.1" 304 0
+[02/Jun/2018 19:23:03] "GET /static/img/find_user.png HTTP/1.1" 304 0
+/usr/local/lib/python3.5/dist-packages/django/db/models/fields/__init__.py:1423: RuntimeWarning: DateTimeField User.date_joined received a naive datetime (2018-02-01 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/usr/local/lib/python3.5/dist-packages/django/db/models/fields/__init__.py:1423: RuntimeWarning: DateTimeField User.date_joined received a naive datetime (2018-03-01 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/usr/local/lib/python3.5/dist-packages/django/db/models/fields/__init__.py:1423: RuntimeWarning: DateTimeField User.date_joined received a naive datetime (2018-04-01 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/usr/local/lib/python3.5/dist-packages/django/db/models/fields/__init__.py:1423: RuntimeWarning: DateTimeField User.date_joined received a naive datetime (2018-05-01 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/usr/local/lib/python3.5/dist-packages/django/db/models/fields/__init__.py:1423: RuntimeWarning: DateTimeField User.date_joined received a naive datetime (2018-06-01 00:00:00) while time zone support is active.
+  RuntimeWarning)
+/usr/local/lib/python3.5/dist-packages/django/db/models/fields/__init__.py:1423: RuntimeWarning: DateTimeField User.date_joined received a naive datetime (2018-08-01 00:00:00) while time zone support is active.
+  RuntimeWarning)
+[02/Jun/2018 19:23:20] "GET /statistical/user/pass/2018/7 HTTP/1.1" 200 22003
+Internal Server Error: /statistical/user/commission/line/2018/0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 287, in commissionLine
+    dataDict = getUserlineChar(now_time,"commission")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 206, in getUserlineChar
+    plt.plot(list(monthlist),linesDict[x],label=x)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (6,) and (12,)
+[02/Jun/2018 19:23:21] "GET /statistical/user/commission/line/2018/0 HTTP/1.1" 500 15514
+Internal Server Error: /statistical/user/commission/line/2018/0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 287, in commissionLine
+    dataDict = getUserlineChar(now_time,"commission")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 206, in getUserlineChar
+    plt.plot(list(monthlist),linesDict[x],label=x)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (6,) and (12,)
+[02/Jun/2018 19:23:23] "GET /statistical/user/commission/line/2018/0 HTTP/1.1" 500 15527
+Internal Server Error: /statistical/user/commission/line/2018/0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 287, in commissionLine
+    dataDict = getUserlineChar(now_time,"commission")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 206, in getUserlineChar
+    plt.plot(list(monthlist),linesDict[x],label=x)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (6,) and (12,)
+[02/Jun/2018 19:23:24] "GET /statistical/user/commission/line/2018/0 HTTP/1.1" 500 15527
+Internal Server Error: /statistical/user/commission/line/2018/0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 287, in commissionLine
+    dataDict = getUserlineChar(now_time,"commission")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 206, in getUserlineChar
+    plt.plot(list(monthlist),linesDict[x],label=x)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (6,) and (12,)
+[02/Jun/2018 19:23:24] "GET /statistical/user/commission/line/2018/0 HTTP/1.1" 500 15527
+Internal Server Error: /statistical/user/commission/line/2018/0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 287, in commissionLine
+    dataDict = getUserlineChar(now_time,"commission")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 206, in getUserlineChar
+    plt.plot(list(monthlist),linesDict[x],label=x)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (6,) and (12,)
+[02/Jun/2018 19:23:24] "GET /statistical/user/commission/line/2018/0 HTTP/1.1" 500 15527
+Internal Server Error: /statistical/user/sellcount/line/2018/0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 301, in saleCountLine
+    dataDict = getUserlineChar(now_time,"sellCount")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 206, in getUserlineChar
+    plt.plot(list(monthlist),linesDict[x],label=x)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (6,) and (12,)
+[02/Jun/2018 19:23:31] "GET /statistical/user/sellcount/line/2018/0 HTTP/1.1" 500 15521
+Internal Server Error: /statistical/user/sellcount/line/2018/0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 301, in saleCountLine
+    dataDict = getUserlineChar(now_time,"sellCount")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 206, in getUserlineChar
+    plt.plot(list(monthlist),linesDict[x],label=x)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (6,) and (12,)
+[02/Jun/2018 19:23:32] "GET /statistical/user/sellcount/line/2018/0 HTTP/1.1" 500 15521
+Internal Server Error: /statistical/user/sellcount/line/2018/0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 301, in saleCountLine
+    dataDict = getUserlineChar(now_time,"sellCount")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 206, in getUserlineChar
+    plt.plot(list(monthlist),linesDict[x],label=x)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (6,) and (12,)
+[02/Jun/2018 19:23:32] "GET /statistical/user/sellcount/line/2018/0 HTTP/1.1" 500 15521
+Internal Server Error: /statistical/user/sellcount/line/2018/0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 301, in saleCountLine
+    dataDict = getUserlineChar(now_time,"sellCount")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 206, in getUserlineChar
+    plt.plot(list(monthlist),linesDict[x],label=x)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (6,) and (12,)
+[02/Jun/2018 19:23:33] "GET /statistical/user/sellcount/line/2018/0 HTTP/1.1" 500 15521
+[02/Jun/2018 19:23:35] "GET /statistical/product/line/2018/0 HTTP/1.1" 200 45197
+[02/Jun/2018 19:23:35] "GET /statistical/product/line/2018/0 HTTP/1.1" 200 45197
+[02/Jun/2018 19:23:36] "GET /statistical/product/line/2018/0 HTTP/1.1" 200 45197
+Internal Server Error: /statistical/user/sellcount/line/2018/0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 301, in saleCountLine
+    dataDict = getUserlineChar(now_time,"sellCount")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 206, in getUserlineChar
+    plt.plot(list(monthlist),linesDict[x],label=x)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (6,) and (12,)
+[02/Jun/2018 19:23:41] "GET /statistical/user/sellcount/line/2018/0 HTTP/1.1" 500 15521
+No handles with labels found to put in legend.
+[02/Jun/2018 19:24:00] "GET /statistical/user/commission/histogram/2018/0 HTTP/1.1" 200 22451
+No handles with labels found to put in legend.
+[02/Jun/2018 19:24:03] "GET /statistical/user/commission/histogram/2017/0 HTTP/1.1" 200 16881
+No handles with labels found to put in legend.
+[02/Jun/2018 19:24:08] "GET /statistical/user/commission/histogram/2017/6 HTTP/1.1" 200 16881
+No handles with labels found to put in legend.
+[02/Jun/2018 19:24:10] "GET /statistical/user/commission/histogram/2017/5 HTTP/1.1" 200 16881
+[02/Jun/2018 19:24:12] "GET /users/logout/?next=/ HTTP/1.1" 302 0
+[02/Jun/2018 19:24:12] "GET / HTTP/1.1" 200 1935
+Internal Server Error: /statistical/user/commission/line/2018/0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/views.py", line 287, in commissionLine
+    dataDict = getUserlineChar(now_time,"commission")
+  File "/home/zhou/hit-software_Test/Commission/sellsGun/matplotlibTools/pltUtils.py", line 206, in getUserlineChar
+    plt.plot(list(monthlist),linesDict[x],label=x)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py", line 3358, in plot
+    ret = ax.plot(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/__init__.py", line 1855, in inner
+    return func(ax, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py", line 1527, in plot
+    for line in self._get_lines(*args, **kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 406, in _grab_next_args
+    for seg in self._plot_args(this, kwargs):
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 383, in _plot_args
+    x, y = self._xy_from_xy(x, y)
+  File "/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_base.py", line 242, in _xy_from_xy
+    "have shapes {} and {}".format(x.shape, y.shape))
+ValueError: x and y must have same first dimension, but have shapes (6,) and (12,)
+[02/Jun/2018 19:24:17] "GET /statistical/user/commission/line/2018/0 HTTP/1.1" 500 15514
+[02/Jun/2018 19:24:28] "GET / HTTP/1.1" 200 1935
+[02/Jun/2018 19:24:36] "POST /login/ HTTP/1.1" 302 0
+[02/Jun/2018 19:24:36] "GET /addOrder/ HTTP/1.1" 200 9572
+[02/Jun/2018 19:24:41] "POST /login/ HTTP/1.1" 302 0
+[02/Jun/2018 19:24:41] "GET /pageadmin/ HTTP/1.1" 200 7207
+[02/Jun/2018 19:24:41] "GET /static/css/font-awesome.css HTTP/1.1" 200 23140
+[02/Jun/2018 19:24:41] "GET /static/css/custom.css HTTP/1.1" 200 4649
+[02/Jun/2018 19:24:41] "GET /static/css/bootstrap.css HTTP/1.1" 200 126536
+[02/Jun/2018 19:24:41] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29080
+[02/Jun/2018 19:24:41] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 200 1386
+[02/Jun/2018 19:24:41] "GET /static/js/custom.js HTTP/1.1" 200 1346
+[02/Jun/2018 19:24:41] "GET /static/js/loadpage.js HTTP/1.1" 200 4723
+[02/Jun/2018 19:24:42] "GET /static/img/find_user.png HTTP/1.1" 200 10387
+[02/Jun/2018 19:24:43] "GET /static/font-awesome/fonts/fontawesome-webfontba72.woff?v=4.0.3 HTTP/1.1" 200 44432
+[02/Jun/2018 19:24:43] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 200 293285
+[02/Jun/2018 19:24:56] "POST /addOrder/ HTTP/1.1" 200 9772
+[02/Jun/2018 19:25:09] "POST /addOrder/ HTTP/1.1" 200 9956
+[02/Jun/2018 19:25:12] "GET /users/logout HTTP/1.1" 301 0
+[02/Jun/2018 19:25:36] "GET /addClearOrder/ HTTP/1.1" 200 229
+Not Found: /addorder
+[02/Jun/2018 19:25:36] "GET /addorder HTTP/1.1" 404 5561
+[02/Jun/2018 19:25:41] "GET /pageadmin HTTP/1.1" 301 0
