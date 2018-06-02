@@ -1,6 +1,7 @@
 function loadUser() {
 	var date = getYearMonth();
 	var domain = document.URL;
+	monthShow();
 	var imageurl = domain.substring(0, find(domain, "/", 2)) + "/statistical/user";
 	$.get(imageurl, function(result) {
 		if(result.error == 0) {
@@ -158,8 +159,7 @@ function getImage(url) {
 			var imageElement = document.createElement('img');
 			imageElement.setAttribute("id", "myimage");
 			imageElement.setAttribute("src", "data:image/png;base64," + result.imagedata);
-			$('#pageTitle').text(result.title);
-
+			$('#pageTitle').text("");
 			$('#page-container').append(imageElement);
 		} else {
 			$('#pageTitle').text(result.errorReason);

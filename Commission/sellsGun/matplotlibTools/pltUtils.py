@@ -34,16 +34,19 @@ def saleProduct(time,flag):
     if flag=="year":
         paramDict = {"orderId__date__year":time.year}
         title = str(time.year)+"年"
-
     elif flag =="month":
         paramDict = {"orderId__date__year": time.year,"orderId__date__month":time.month}
         title = str(time.year) + "年"+str(time.month)+"月"
-
     else:
         return {"error":True}
     totalOrder = OrderDetail.objects.filter(**paramDict).values(
         'product').annotate(count=Sum('number'))
-    totalCount = {eachDict['product']: eachDict['count'] for eachDict in totalOrder}
+    totalCount = {key:0 for key in products}
+    for eachDict in totalOrder:
+        if eachDict['product'] in totalCount.keys():
+            totalCount[eachDict['product']]+=eachDict['count']
+        else:
+            totalCount[eachDict['product']] = 0
     for key in products:
         if key not in totalCount:
             totalCount[key] = 0
@@ -80,7 +83,13 @@ def townProduct(time,flag):
         paramDict.update(bastDict)
         totalOrder = OrderDetail.objects.filter(**paramDict).values(
             'product').annotate(count=Sum('number'))
-        totalCount = {eachDict['product']: eachDict['count'] for eachDict in totalOrder}
+        totalCount = {key: 0 for key in products}
+        for eachDict in totalOrder:
+            if eachDict['product'] in totalCount.keys():
+                totalCount[eachDict['product']] += eachDict['count']
+            else:
+                totalCount[eachDict['product']] = 0
+
         for key in products:
             if key not in totalCount:
                 totalCount[key] = 0
@@ -125,11 +134,13 @@ def getUserCommisstionHistogram(time,flag):
     if flag!="year" and flag !="month":
         return {"error":True}
     bastDict={}
+    aliasTitle = "图"
     if flag == "year":
         bastDict = {"commiDate__year":time.year}
+        aliasTitle = str(time.year)+"年个人佣金柱状图"
     elif flag=="month":
         bastDict={"commiDate__month":time.month,"commiDate__year":time.year}
-
+        aliasTitle = str(time.year) + "年"+str(time.month)+"月个人佣金柱状图"
     salesUsers = User.objects.filter(userType='salesman')
     xlabel = [user.aliasName for user in salesUsers]
 
@@ -147,6 +158,7 @@ def getUserCommisstionHistogram(time,flag):
         text = "%.0f" % b if personCommissions[xlabel[a]]!=-1 else " "
         plt.text(a, b + 0.05, text, ha='center', va='bottom', fontsize=7)
     plt.legend(loc="upper left")
+    plt.title(aliasTitle)
     sio = BytesIO()
     plt.savefig(sio, format="png")
     data = base64.encodebytes(sio.getvalue()).decode()
@@ -194,6 +206,11 @@ def getUserlineChar(now_time,flag):
     salesUsers = User.objects.filter(userType='salesman')
     aliasnames = [user.aliasName for user in salesUsers]
     linesDict = {x:[] for x in aliasnames}
+    aliasTile = "员工"
+    if flag =="commission":
+        aliasTile = "员工佣金折线图"
+    else:
+        aliasTile = "员工销售额折线图"
 
     commisions = Commission.objects.filter(commiDate__year=now_time.year).values(flag, 'salesId_id__aliasName',"commiDate")
     linesDicttemp = {x:{} for x in aliasnames}
@@ -214,7 +231,7 @@ def getUserlineChar(now_time,flag):
             plt.text(i, j + 1, j, fontsize=8)
     plt.legend(loc="upper left")
     plt.xticks(monthlist)
-    plt.title(flag)
+    plt.title(aliasTile)
     plt.xlabel(u'月份')
     plt.ylabel(u'数额')
     sio = BytesIO()

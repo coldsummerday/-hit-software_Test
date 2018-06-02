@@ -386,7 +386,7 @@ def calCommission(totalCount):
             tempcommission = 1000 * 0.1 + (1800-1000) * 0.15 + (sellPrice-1800) * 0.2
             return (tempcommission,'20%',sellPrice)
 
-def getJsonByMonth(year,month,func):
+def getJsonByMonth(year,month,func,title="图"):
     now_time = datetime.datetime.now()
     if year > now_time.year or month > 12 or month < 0:
         return JsonResponse({"error": 1, "errorReason": "年份或月份错误"})
@@ -400,17 +400,9 @@ def getJsonByMonth(year,month,func):
     if dataDict['error']:
         return JsonResponse({"error": 1, "errorReason": "画图错误"})
     imageData = dataDict["imagedata"]
-    respDict = {"imagedata": imageData, "error": 0, "title": "销售量图", "errorReason": "None"}
+    respDict = {"imagedata": imageData, "error": 0, "title": title, "errorReason": "None"}
     return JsonResponse(respDict)
 
 
 
-def count(sellPrice):
-    if 0 < sellPrice <= 1000:
-        return sellPrice * 0.1
-    elif 1000<sellPrice<=1800:
-        commission = 1000 * 0.1 + (sellPrice - 1000) * 0.15
-        return commission
-    elif sellPrice > 1800:
-        tempcommission = 1000 * 0.1 + (1800 - 1000) * 0.15 + (sellPrice - 1800) * 0.2
-        return tempcommission
+
