@@ -374,15 +374,17 @@ def calCommission(totalCount):
             flag=False
         else:
             sellPrice+=totalCount[key] * prices[key]
-    if not flag:
-        return (0,'0',0)
+    if not flag or sellPrice <0:
+        return (0,'0',sellPrice)
     else:
-        if sellPrice<=1000:
+        if 0<sellPrice<=1000:
             return (sellPrice * 0.1,'10%',sellPrice)
         elif 1000<sellPrice<=1800:
-            return (sellPrice*0.15,'15%',sellPrice)
-        else:
-            return (sellPrice * 0.2,'20%',sellPrice)
+            commission =  1000 * 0.1 + (sellPrice-1000) * 0.15
+            return (commission,'15%',sellPrice)
+        elif sellPrice > 1800:
+            tempcommission = 1000 * 0.1 + (1800-1000) * 0.15 + (sellPrice-1800) * 0.2
+            return (tempcommission,'20%',sellPrice)
 
 def getJsonByMonth(year,month,func):
     now_time = datetime.datetime.now()
@@ -403,3 +405,12 @@ def getJsonByMonth(year,month,func):
 
 
 
+def count(sellPrice):
+    if 0 < sellPrice <= 1000:
+        return sellPrice * 0.1
+    elif 1000<sellPrice<=1800:
+        commission = 1000 * 0.1 + (sellPrice - 1000) * 0.15
+        return commission
+    elif sellPrice > 1800:
+        tempcommission = 1000 * 0.1 + (1800 - 1000) * 0.15 + (sellPrice - 1800) * 0.2
+        return tempcommission

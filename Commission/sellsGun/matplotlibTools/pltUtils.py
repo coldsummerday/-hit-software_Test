@@ -145,7 +145,6 @@ def getUserCommisstionHistogram(time,flag):
     plt.bar(range(len(commisionNumbers)), commisionNumbers, color="rgb", tick_label=xlabel)
     for a,b in zip(range(len(xlabel)),commisionNumbers):
         text = "%.0f" % b if personCommissions[xlabel[a]]!=-1 else " "
-
         plt.text(a, b + 0.05, text, ha='center', va='bottom', fontsize=7)
     plt.legend(loc="upper left")
     sio = BytesIO()
@@ -159,18 +158,24 @@ def getUserCommissionLine(now_time,user,flag):
     monthlist = range(1, now_time.month + 1)
     commisions = Commission.objects.filter(commiDate__year=now_time.year,salesId=user).values( flag,"commiDate")
     count=[]
-    for commision in commisions:
-        for month in monthlist:
+    for month in monthlist:
+        appendFlag = False
+        for commision in commisions:
             if month == commision['commiDate'].month:
                 count.append(commision[flag])
-            else:
-                count.append(0)
+                appendFlag = True
+        if not appendFlag:
+            count.append(0.0)
     plt.plot(list(monthlist),count)
     for i, j in list(zip(list(monthlist), count)):
         plt.text(i, j + 1, j, fontsize=8)
     plt.legend(loc="upper left")
     plt.xticks(monthlist)
-    plt.title(user.aliasName+flag)
+    if flag=="commission":
+        aliasTitle = "佣金走势图"
+    else:
+        aliasTitle = "销售额走势图"
+    plt.title(user.aliasName+aliasTitle)
     plt.xlabel(u'月份')
     plt.ylabel(u'数额')
     sio = BytesIO()
@@ -191,17 +196,18 @@ def getUserlineChar(now_time,flag):
     linesDict = {x:[] for x in aliasnames}
 
     commisions = Commission.objects.filter(commiDate__year=now_time.year).values(flag, 'salesId_id__aliasName',"commiDate")
+    linesDicttemp = {x:{} for x in aliasnames}
     for commision in commisions:
+        linesDicttemp[commision['salesId_id__aliasName']][commision['commiDate'].month]=commision[flag]
+    for aliasname in aliasnames:
         for month in monthlist:
-            if month == commision['commiDate'].month:
-                linesDict[commision['salesId_id__aliasName']].append(commision[flag])
+            if month in linesDicttemp[aliasname].keys():
+                linesDict[aliasname].append(linesDicttemp[aliasname][month])
             else:
-
-                linesDict[commision['salesId_id__aliasName']].append(0)
+                linesDict[aliasname].append(0)
     for x in aliasnames:
         if len(linesDict[x])==0:
             linesDict[x] = [0.0 for i in monthlist]
-
     for x in aliasnames:
         plt.plot(list(monthlist),linesDict[x],label=x)
         for i, j in list(zip(list(monthlist), linesDict[x])):
