@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    {% if newClearing %}
+    {% if commistion < 0 %}
+        您未卖出一把完整的枪,佣金为0;
+        售出记录为{{ totalCount.lock }} locks,{{ totalCount.stock }} stocks,{{ totalCount.barrel }}:
+        {% else %}
+            您的销售额为:{{ totalSale }}元,收获佣金:{{ commistion }},结算日期:{{ date }}
+    {% endif %}
+
+    {% else %}
+        您已经在{{ date }} 结算,您的销售额为:{{ totalSale }}元,收获佣金:{{ commistion }}.
+    {% endif %}
+</body>
+</html>

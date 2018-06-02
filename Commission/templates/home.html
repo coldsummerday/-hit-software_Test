@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul>
+{% if user.is_authenticated %}
+  <p>你已登录，欢迎你：<a href="#">{{ user.aliasName }}</a></p>
+  <a href="{% url 'logout' %}?next={{ request.path }}">注销登录</a>
+    <button class="btn btn-default"><a href="{% url 'password_change' %}?next={{ request.path }}">修改密码</a></button>
+    <button class="btn btn-default"><a href="{% url 'addOrder' %}">新增订单</a></button>
+
+{% else %}
+<p>你还没有登录，请
+    <li><a href="{% url 'register' %}?next={{ request.path }}">注册</a> </li>
+或者
+    <li><a href="{% url 'login' %}?next={{ request.path }}">登录</a></li>
+{% endif %}
+    {% block main %}
+    {% endblock %}
+</ul>
+</body>
+</html>

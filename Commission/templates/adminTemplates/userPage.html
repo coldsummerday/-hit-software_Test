@@ -1,0 +1,352 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html >
+<head>
+      <meta charset="utf-8" />
+    <meta name="author" content="order by dede58.com"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>salesPerson'admin</title>
+    <!-- BOOTSTRAP STYLES-->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div id="username" hidden="hidden">{{ username }}</div>
+    <div id="wrapper">
+         <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="adjust-nav">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><i class="fa fa-square-o "></i>销售员管理</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>{{ aliasname }}</li>
+                         <li><a href="{% url 'logout' %}?next=/">注销</a></li>
+                        <li><a href="{% url 'password_change' %}?next={{ request.path }}">修改密码</a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <!-- /. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li class="text-center user-image-back">
+                    </li>
+
+                    <li>
+                        <a href="{% url 'addOrder' %}"><i class="fa fa-desktop "></i>新增订单</a>
+                    </li>
+                    <li>
+                        <a href="javascript:loadCommission()"><i class="fa fa-edit "></i>佣金情况<span class="fa arrow"></span></a>
+
+                    </li>
+                    <li>
+                        <a href="javascript:loadSales()"><i class="fa fa-table "></i>销售情况</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+            <h2  id="pageTitle" style="text-align:center"></h2>
+                <div class="row" id="page_container">
+                    <div id="orderAdd">
+                        <div class="nav"></div>
+	<div class="container">
+		<div class="panel panel-default">
+			<form action="{% url 'addOrder' %}" method="post" >
+                {% csrf_token %}
+  <div class="form-group">
+    <label for="Locks">Locks:</label>
+    <input type="text" class="form-control" id="lockInput" name="locks" onkeyup="checkLock();" >
+  </div>
+  <div class="form-group">
+    <label for="stocks">stocks</label>
+    <input type="text" class="form-control" id="stockInput" name="stocks" oninput="checkStock()" >
+  </div>
+ <div class="form-group">
+    <label for="barrels">barrels</label>
+    <input type="text" class="form-control" id = "barrelInput" name="barrels" oninput="checkbarrel()" >
+  </div>
+  <div class="form-group">
+    <label for="city"> 销售地点:</label>
+  <select name="city">
+  <option value ="哈尔滨">哈尔滨</option>
+  <option value ="北京">北京 </option>
+  <option value="上海">上海</option>
+  <option value="深圳">深圳</option>
+</select>
+  </div>
+   <div class="form-group">
+       {% if not clearingFlag %}
+           <button type="submit" class="btn btn-primary">提交</button>
+       {% endif %}
+   </div>
+</form>
+        {% if  clearingFlag  %}
+         <p>您已经在该月完成清算佣金,查看佣金情况:</p>
+           <button  class="btn btn-primary" onclick="window.location.href='{% url 'addClearing' %}';">查看本月情况</button>
+        {% endif %}
+
+</div>
+
+
+<div class="panel panel-default">
+
+  <div class="panel-heading">本月销售情况</div>
+  	<div class="panel-body">
+ 	 </div>
+
+  <!-- Table -->
+ <table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Locks</th>
+      <th>Stocks</th>
+      <th>Barrels</th>
+      <th>city</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for orderRow in orderTable %}
+      <tr>
+      {% if orderRow.lock %}
+        <td>{{   orderRow.lock }}</td>
+          {% else %}
+          <td>0</td>
+      {% endif %}
+      {% if orderRow.stock %}
+        <td>{{ orderRow.stock }}</td>
+           {% else %}
+          <td>0</td>
+      {% endif %}
+      {% if orderRow.barrel %}
+        <td>{{  orderRow.barrel }}</td>
+           {% else %}
+          <td>0</td>
+      {% endif %}
+      {% if orderRow.city %}
+        <td>{{  orderRow.city }}</td>
+           {% else %}
+          <td>0</td>
+      {% endif %}
+      </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+    <div class="panel panel-default">
+
+  <div class="panel-heading">本月统计</div>
+  	<div class="panel-body">
+ 	 </div>
+  <!-- Table -->
+ <table class="table table-hover">
+  <thead>
+    <tr>
+        <th>销售情况</th>
+      <th>Locks</th>
+      <th>Stocks</th>
+      <th>Barrels</th>
+    </tr>
+  </thead>
+    <tr>
+        <td>已销售数量</td>
+        {% if totalCount.lock %}
+        <td>{{ totalCount.lock }}</td>
+            {% else %}
+            <td>0</td>
+        {% endif %}
+        {% if totalCount.stock %}
+        <td>{{ totalCount.stock }}</td>
+            {% else %}
+            <td>0</td>
+        {% endif %}
+    {% if totalCount.barrel %}
+        <td>{{ totalCount.barrel }}</td>
+            {% else %}
+            <td>0</td>
+        {% endif %}
+    </tr>
+     <tr>
+         <td>本月剩余数量</td>
+          {% if remainCount.lock %}
+        <td id="lockRemain">{{ remainCount.lock }}</td>
+            {% else %}
+             <td id="lockRemain">0</td>
+        {% endif %}
+        {% if remainCount.stock %}
+        <td id="stockRemain">{{ remainCount.stock }}</td>
+            {% else %}
+            <td id="stockRemain">0</td>
+        {% endif %}
+    {% if remainCount.barrel %}
+        <td id="barrelRemain" >{{ remainCount.barrel }}</td>
+            {% else %}
+            <td id="barrelRemain" >0</td>
+        {% endif %}
+     </tr>
+  <tbody>
+    <thead>
+    <tr>
+        <th>佣金提成率</th>
+        <th>佣金提成</th>
+        <th>总销售额</th>
+        <th>是否结余</th>
+    </tr>
+  </thead>
+    {% if nowCommission %}
+    <td>{{ nowCommission.percent }}</td>
+    <td>{{ nowCommission.commistion }}</td>
+        <td>{{ nowCommission.totalSale }}</td>
+    <td><button id="clearButton" class="btn btn-primary" onclick="window.location.href='{% url 'addClearing' %}';">结账</button></td>
+    {% endif %}
+  </tbody>
+</table>
+</div>
+    </div>
+
+	</div>
+
+                    </div>
+                </div>
+            </div>
+             <!-- /. PAGE INNER  -->
+
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="{% static 'js/jquery-1.10.2.js' %}"></script>
+
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- METISMENU SCRIPTS -->
+    <script src="{% static 'js/jquery.metisMenu.js' %}"></script>
+
+      <!-- CUSTOM SCRIPTS -->
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/loadpage.js' %}"></script>
+    <script>
+    function checkLock() {
+            var regexp = /^\d*$/;
+            var inputField = document.getElementById('lockInput');
+            var remainElement = document.getElementById('lockRemain');
+            if (!regexp.test(inputField.value)) {
+                inputField.value="0";
+            } else {
+
+                if(parseInt(inputField.value)>parseInt(remainElement.innerText)){
+                    inputField.value="0";
+
+                }
+            }
+        }
+    function checkStock() {
+            var regexp = /^\d*$/;
+            var inputField = document.getElementById('stockInput');
+            var remainElement = document.getElementById('stockRemain');
+            if (!regexp.test(inputField.value)) {
+                inputField.value="0";
+            } else {
+
+                if(parseInt(inputField.value)>parseInt(remainElement.innerText)){
+                    inputField.value="0";
+
+                }
+            }
+        }
+function checkbarrel() {
+            var regexp = /^\d*$/;
+            var inputField = document.getElementById('barrelInput');
+            var remainElement = document.getElementById('barrelRemain');
+            if (!regexp.test(inputField.value)) {
+                inputField.value="0";
+            } else {
+
+                if(parseInt(inputField.value)>parseInt(remainElement.innerText)){
+                    inputField.value="0";
+
+                }
+            }
+        }
+    function limitInput(productName){
+			var inputElement = document.getElementById(productName+"Input");
+		 	var remainElement = document.getElementById(productName+"Remain");
+		 	inputElement.placeholder = "you remain  " + remainElement.innerText+" "+productName+"!";
+		}
+		 function initValue(){
+		 	limitInput("stock")
+		 	limitInput("lock")
+		 	limitInput("barrel")
+             a = '{{ "clearingFlag" }}'
+             if (a=="True")
+             {
+                 $('#clearButton').innerText="结账"
+             }else{
+                  $('#clearButton').attr('disabled',false);
+                  $('#clearButton').innerText="已结账"
+             }
+		 }
+
+		 initValue();
+        function getUsername() {
+            return document.getElementById('username').innerText;
+        }
+        function loadCommission() {
+            loadLine("/statistical/user/commission/");
+        }
+        function loadSales() {
+            loadLine("/statistical/user/sell/");
+        }
+        function loadLine(url) {
+            $('#page_container').empty();
+            var domain = document.URL;
+            var imageUrl = domain.substring(0, find(domain, "/", 2)) +url+getUsername();
+            getImage(imageUrl)
+
+        }
+        function find(str, cha, num) {
+	var x = str.indexOf(cha);
+	for(var i = 0; i < num; i++) {
+		x = str.indexOf(cha, x + 1);
+	}
+	return x;
+}
+    function getImage(url) {
+
+	$.get(url, function(result) {
+		if(result.error == 0) {
+			var imageElement = document.createElement('img');
+			imageElement.setAttribute("id", "myimage");
+			imageElement.setAttribute("src", "data:image/png;base64," + result.imagedata);
+			$('#page_container').append(imageElement);
+		} else {
+			$('#pageTitle').text(result.errorReason);
+		}
+	})
+}
+
+</script>
+</body>
+
+</html>

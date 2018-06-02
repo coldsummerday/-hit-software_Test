@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+  <div class="panel panel-default">
+
+  <div class="panel-heading">{{ year }}年{{ month }}月获得佣金</div>
+  	<div class="panel-body">
+ 	 </div>
+  <!-- Table -->
+ <table class="table table-hover">
+  <thead>
+    <tr>
+        <th>销售员</th>
+      <th>佣金状态</th>
+      <th>销售额</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for row in tablerows %}
+      <tr>
+      <th>{{ row.name }}</th>
+      <th>
+          {% ifequal row.state 1 %}
+              已结算
+          {% endifequal %}
+          {% ifequal row.state 0 %}
+              本月未结算
+          {% endifequal %}
+          {% ifequal row.state 2 %}
+              未获得佣金
+          {% endifequal %}
+      </th>
+      <th>{{ row.salecount }}</th>
+      </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+</body>
+</html>

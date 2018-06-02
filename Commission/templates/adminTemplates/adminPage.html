@@ -1,0 +1,172 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html >
+<head>
+      <meta charset="utf-8" />
+    <meta name="author" content="order by dede58.com"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Commission admin</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+
+
+
+    <div id="wrapper">
+         <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="adjust-nav">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><i class="fa fa-square-o "></i>Admin</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{% url 'logout' %}?next=/">注销</a></li>
+                        <li><a href="{% url 'password_change' %}?next={{ request.path }}">修改密码</a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <!-- /. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li class="text-center user-image-back">
+                        <img src="{% static 'img/find_user.png' %}" class="img-responsive" />
+
+                    </li>
+
+
+                    <li>
+                         <a href="javascript:loadUser()"><i class="fa fa-desktop "></i>人员管理</a>
+                    </li>
+                    <li>
+                        <a ><i class="fa fa-edit "></i>产品销售图<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">柱状图<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                 <li>
+                                <a href="javascript:loadProductYearSales()">年查询</a>
+                            </li>
+                            <li>
+                                <a href="javascript:loadProductMonthPage()">月统计</a>
+                            </li>
+                            </ul></li>
+
+
+                            <li>
+                                <a href="#">销售地统计<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="javascript:loadProductTownYearPage()">年统计</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:loadProductTownMonthPage()">月统计</a>
+                                    </li>
+
+                                </ul>
+
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-table "></i>佣金发放情况<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">柱状图<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="javascript:loadUserCommissionHisYearPage()">年统计</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:loadUserCommissionHisMonthPage()">月统计</a>
+                                    </li>
+
+                                </ul>
+
+                            </li>
+                            <li>
+                                <a href="javascript:loadUserCommissionLinePage()">折线图<span class="fa arrow"></span></a>
+                            </li>
+                            <li>
+                                <a href="javascript:loadPassUserHis()">获得佣金人数</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:loadUsersalesCountPage()"><i class="fa fa-edit "></i>销售员销售额统计 </a>
+                    </li>
+
+
+
+                    <li>
+                        <a href="javascript:loadProductLinePage()"><i class="fa fa-qrcode "></i>产品销售曲线图</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                 <!-- /. ROW  -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 id="pageTitle" style="text-align:center"></h2>
+
+                        <div class="col-md-4">
+                        <p>请选择年份:</p>
+    <select id="selectyear"><option value="2018">2018年</option><option value="2017">2017年</option><option value="2016">2016年</option><option value="2015">2015年</option></select>
+    <p id="monthHead">请选择月份:</p>
+    <select id="selectmonth"><option value="12">12月</option><option value="11">11月</option><option value="10">10月</option><option value="9">9月</option><option value="8">8月</option><option value="7">7月</option><option value="6">6月</option><option value="5">5月</option><option value="4">4月</option><option value="3">3月</option><option value="2">2月</option><option value="1">1月</option></select>
+    <button id="checkButton" class="btn btn-primary">点击查询</button>
+                    </div>
+                        <div class="col-md-8">
+                            <div id="page-container"></div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                 <!-- /. ROW  -->
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="{% static 'js/jquery-1.10.2.js' %}"></script>
+
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- METISMENU SCRIPTS -->
+    <script src="{% static 'js/jquery.metisMenu.js' %}"></script>
+
+      <!-- CUSTOM SCRIPTS -->
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/loadpage.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+	<div class="nav"></div>
+	<div class="container">
+		<div class="panel panel-default">
+			<form action="{% url 'addOrder' %}" method="post" >
+                {% csrf_token %}
+  <div class="form-group">
+    <label for="Locks">Locks:</label>
+    <input type="text" class="form-control" id="lockInput" name="locks" onkeyup="checkLock();" >
+  </div>
+  <div class="form-group">
+    <label for="stocks">stocks</label>
+    <input type="text" class="form-control" id="stockInput" name="stocks" oninput="checkStock()" >
+  </div>
+ <div class="form-group">
+    <label for="barrels">barrels</label>
+    <input type="text" class="form-control" id = "barrelInput" name="barrels" oninput="checkbarrel()" >
+  </div>
+  <div class="form-group">
+    <label for="city"> 销售地点:</label>
+  <select name="city">
+  <option value ="哈尔滨">哈尔滨</option>
+  <option value ="北京">北京 </option>
+  <option value="上海">上海</option>
+  <option value="深圳">深圳</option>
+</select>
+  </div>
+   <div class="form-group">
+       {% if not clearingFlag %}
+           <button type="submit" class="btn btn-primary">提交</button>
+       {% endif %}
+   </div>
+</form>
+        {% if  clearingFlag  %}
+         <p>您已经在该月完成清算佣金,查看佣金情况:</p>
+           <button  class="btn btn-primary" onclick="window.location.href='{% url 'addClearing' %}';">查看本月情况</button>
+        {% endif %}
+
+</div>
+
+
+<div class="panel panel-default">
+
+  <div class="panel-heading">本月销售情况</div>
+  	<div class="panel-body">
+ 	 </div>
+
+  <!-- Table -->
+ <table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Locks</th>
+      <th>Stocks</th>
+      <th>Barrels</th>
+      <th>city</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for orderRow in orderTable %}
+      <tr>
+      {% if orderRow.lock %}
+        <td>{{   orderRow.lock }}</td>
+          {% else %}
+          <td>0</td>
+      {% endif %}
+      {% if orderRow.stock %}
+        <td>{{ orderRow.stock }}</td>
+           {% else %}
+          <td>0</td>
+      {% endif %}
+      {% if orderRow.barrel %}
+        <td>{{  orderRow.barrel }}</td>
+           {% else %}
+          <td>0</td>
+      {% endif %}
+      {% if orderRow.city %}
+        <td>{{  orderRow.city }}</td>
+           {% else %}
+          <td>0</td>
+      {% endif %}
+      </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+    <div class="panel panel-default">
+
+  <div class="panel-heading">本月统计</div>
+  	<div class="panel-body">
+ 	 </div>
+  <!-- Table -->
+ <table class="table table-hover">
+  <thead>
+    <tr>
+        <th>销售情况</th>
+      <th>Locks</th>
+      <th>Stocks</th>
+      <th>Barrels</th>
+    </tr>
+  </thead>
+    <tr>
+        <td>已销售数量</td>
+        {% if totalCount.lock %}
+        <td>{{ totalCount.lock }}</td>
+            {% else %}
+            <td>0</td>
+        {% endif %}
+        {% if totalCount.stock %}
+        <td>{{ totalCount.stock }}</td>
+            {% else %}
+            <td>0</td>
+        {% endif %}
+    {% if totalCount.barrel %}
+        <td>{{ totalCount.barrel }}</td>
+            {% else %}
+            <td>0</td>
+        {% endif %}
+    </tr>
+     <tr>
+         <td>本月剩余数量</td>
+          {% if remainCount.lock %}
+        <td id="lockRemain">{{ remainCount.lock }}</td>
+            {% else %}
+             <td id="lockRemain">0</td>
+        {% endif %}
+        {% if remainCount.stock %}
+        <td id="stockRemain">{{ remainCount.stock }}</td>
+            {% else %}
+            <td id="stockRemain">0</td>
+        {% endif %}
+    {% if remainCount.barrel %}
+        <td id="barrelRemain" >{{ remainCount.barrel }}</td>
+            {% else %}
+            <td id="barrelRemain" >0</td>
+        {% endif %}
+     </tr>
+  <tbody>
+    <thead>
+    <tr>
+        <th>佣金提成率</th>
+        <th>佣金提成</th>
+        <th>总销售额</th>
+        <th>是否结余</th>
+    </tr>
+  </thead>
+    {% if nowCommission %}
+    <td>{{ nowCommission.percent }}</td>
+    <td>{{ nowCommission.commistion }}</td>
+        <td>{{ nowCommission.totalSale }}</td>
+    <td><button  class="btn btn-primary" onclick="window.location.href='{% url 'addClearing' %}';"
+
+    {% if clearingFlag %}
+        disabled="disabled">已结账
+    {% else %}
+        本月结账
+    {% endif %}</button></td>
+    {% endif %}
+  </tbody>
+</table>
+</div>
+    </div>
+
+	</div>
+	</body>
+<script>
+    function checkLock() {
+            var regexp = /^\d*$/;
+            var inputField = document.getElementById('lockInput');
+            var remainElement = document.getElementById('lockRemain');
+            if (!regexp.test(inputField.value)) {
+                inputField.value="0";
+            } else {
+
+                if(parseInt(inputField.value)>parseInt(remainElement.innerText)){
+                    inputField.value="0";
+
+                }
+            }
+        }
+    function checkStock() {
+            var regexp = /^\d*$/;
+            var inputField = document.getElementById('stockInput');
+            var remainElement = document.getElementById('stockRemain');
+            if (!regexp.test(inputField.value)) {
+                inputField.value="0";
+            } else {
+
+                if(parseInt(inputField.value)>parseInt(remainElement.innerText)){
+                    inputField.value="0";
+
+                }
+            }
+        }
+function checkbarrel() {
+            var regexp = /^\d*$/;
+            var inputField = document.getElementById('barrelInput');
+            var remainElement = document.getElementById('barrelRemain');
+            if (!regexp.test(inputField.value)) {
+                inputField.value="0";
+            } else {
+
+                if(parseInt(inputField.value)>parseInt(remainElement.innerText)){
+                    inputField.value="0";
+
+                }
+            }
+        }
+    function limitInput(productName){
+			var inputElement = document.getElementById(productName+"Input");
+		 	var remainElement = document.getElementById(productName+"Remain");
+		 	inputElement.placeholder = "you remain  " + remainElement.innerText+" "+productName+"!";
+		}
+		 function initValue(){
+		 	limitInput("stock")
+		 	limitInput("lock")
+		 	limitInput("barrel")
+		 }
+		 initValue();
+</script>
+</html>
