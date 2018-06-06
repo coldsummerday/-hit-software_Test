@@ -145,7 +145,13 @@ def getUserCommisstionHistogram(time,flag):
     xlabel = [user.aliasName for user in salesUsers]
 
     commisions = Commission.objects.filter(**bastDict).values('commission','salesId_id__aliasName')
-    personCommissions = {commision['salesId_id__aliasName']:commision['commission'] for commision in commisions}
+    personCommissions = {}
+    for commision in commisions:
+        if commision['salesId_id__aliasName'] not in personCommissions.keys():
+            personCommissions[commision['salesId_id__aliasName']] = commision['commission']
+        else:
+            personCommissions[commision['salesId_id__aliasName']] +=  commision['commission']
+
     commisionNumbers = []
     for aliasname in xlabel:
         if aliasname not in personCommissions.keys():
