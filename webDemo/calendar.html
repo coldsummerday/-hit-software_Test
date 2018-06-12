@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>calendar</title>
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+        <script type="text/javascript" src="calendar.js"></script>   
+         <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
+         <script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+         <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
+         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> 
+        
+ <script type="text/javascript" 
+         src="http://res.cuiqingcai.com/js/jquery.validate.js">
+ </script>
+ <script type="text/javascript" 
+         src="http://res.cuiqingcai.com/js/jquery.validate.messages_cn.js">
+ </script>
+        <!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <script type="text/javascript">
+            $(function() {
+                $("#frmV").validate(
+                  {
+                      /*自定义验证规则*/
+                      rules: {
+                          username: { required: true, range:[1900,3100] },
+                          email: { required: true, email: true }
+                      },
+                      /*错误提示位置*/
+                      errorPlacement: function(error, element) {
+                          error.appendTo(element.siblings("span"));
+                      }
+                  }
+                );
+            });
+        </script>
+    </head>
+    <body>
+        <div class="page-header">
+            <h1>Calendar
+                <small>第一次作业</small>
+            </h1>
+        </div>
+        <div>
+            <form class="form-horizontal" role="form" id="form1">
+                <div class="form-group">
+                    <label for="year" class="col-sm-4 control-label">年</label>
+                    <div class="col-sm-4">
+                    <input id="year" name="year" type="text" class="form-control"  placeholder="请输入年份"/>
+                    
+                     <span></span>
+                       
+                    </div>
+                   </div>
+                <div class="form-group">
+                    <label for="month" class="col-sm-4 control-label">月</label>
+                    <div class="col-sm-4">
+                    <input id="month" name="month" type="text" class="form-control"  placeholder="请输入月份"/>   
+                                    
+                    <span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="month" class="col-sm-4 control-label">日</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="day" name="day" placeholder="请输入日期">
+                    <span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <button type="button" class="btn btn-default" onclick="submitDate()">提交</button>
+
+                    </div>
+                </div>
+            </form>
+            <form class="form-horizontal" role="form" id="form2">
+                <div class="form-group">
+                    <label for="nextday" class="col-sm-4 control-label">第二天</label>
+                    <div class="col-sm-4">
+                    <textarea class="form-control" rows="3" id="nextday" readonly></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+       
+    </body>
+   
+    <script>
+     $(function() {
+            $("#form1").validate(
+              {
+                  /*自定义验证规则*/
+                  rules: {
+                    year: { required: true, range:[1900,3100] },
+                    month:{required: true, range:[1,12] },
+                    day:{required: true, range:[1,31] }
+                  },
+                  /*错误提示位置*/
+                  errorPlacement: function(error, element) {
+                      error.appendTo(element.siblings("span"));
+                  }
+              }
+            );
+        });
+    
+       
+    </script>
+</html>
