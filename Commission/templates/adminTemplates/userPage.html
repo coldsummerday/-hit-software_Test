@@ -336,6 +336,7 @@ function checkbarrel() {
 
 	$.get(url, function(result) {
 		if(result.error == 0) {
+			$('#myimage').remove()
 			var imageElement = document.createElement('img');
 			imageElement.setAttribute("id", "myimage");
 			imageElement.setAttribute("src", "data:image/png;base64," + result.imagedata);
