@@ -33,7 +33,7 @@ class Calendar(object):
     def nextDay(self):
         if(not self.legalDate()):
             return
-        if ((self.day+1)<self.monthDayHash[self.month]):
+        if ((self.day+1)<=self.monthDayHash[self.month]):
             self.day = self.day+1
         else:
             self.day = 1
@@ -69,7 +69,7 @@ class Calendar(object):
 
     def getweek(self):
         from datetime import date
-        self.weekday = self.weekdays[date(self.year,self.month,self.day).weekday()]
+        self.weekday = self.weekdays[date(int(self.year),int(self.month),int(self.day)).weekday()]
 
 
 
